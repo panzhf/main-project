@@ -1,4 +1,0 @@
-[submodule "src/packages"]
-	path = src/packages
-	url = https://github.com/panzhf/splice-packages.git
-	branch = cursor/-bc-c20fad45-f811-4690-a6fb-2edb838e5cb7-0ec7
