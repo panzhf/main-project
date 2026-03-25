@@ -459,6 +459,24 @@
           "style": {
             "navigationBarTitleText": "补登记"
           }
+        },
+        {
+          "path": "warranty/store-exchange2",
+          "style": {
+            "navigationBarTitleText": "售后换新2"
+          }
+        },
+        {
+          "path": "warranty/exchange-operation2",
+          "style": {
+            "navigationBarTitleText": "售后换新2"
+          }
+        },
+        {
+          "path": "warranty/exchange-success2",
+          "style": {
+            "navigationBarTitleText": "换新结果2"
+          }
         }
       ]
     },
