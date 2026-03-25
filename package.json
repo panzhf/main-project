@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "setup": "bash scripts/setup.sh",
     "serve": "npm run dev:mp-retail",
     "build": "npm run build:mp-retail",
     "lint": "eslint --fix --ext .vue,.js src --ignore-pattern src/packages/*",
