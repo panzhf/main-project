@@ -1,0 +1,16 @@
+.page-coupon {
+  .select-icon {
+    color: $uni-color-primary;
+    font-size: 40rpx;
+  }
+  .container-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99;
+  }
+  .coupon-list {
+    margin-top: 20rpx;
+  }
+}

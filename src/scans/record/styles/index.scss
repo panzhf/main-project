@@ -1,0 +1,48 @@
+.container {
+  position: relative;
+  background: #f5f5f5;
+  margin: 0 20rpx;
+  padding-top: 234rpx;
+  &.is-page {
+    padding-top: 0;
+    .container-header {
+      top: 0;
+    }
+  }
+}
+.container-header {
+  position: fixed;
+  width: 100%;
+  top: 234rpx;
+  left: 0;
+  z-index: 99;
+  background: #f5f5f5;
+  .warm-tip {
+    padding: 10rpx 20rpx;
+    background: #fff5f1;
+    font-weight: 500;
+    color: #ff5e33;
+    line-height: 40rpx;
+    font-size: 24rpx;
+  }
+}
+.search-box {
+  display: flex;
+  margin: 20rpx;
+  .search-date {
+    text-align: center;
+    background: #fff;
+    padding: 0 20rpx;
+    height: 76rpx;
+    border-radius: 35rpx;
+    line-height: 76rpx;
+  }
+  .search-input {
+    width: 100%;
+  }
+}
+
+.count-box {
+  height: 50rpx;
+  line-height: 1;
+}

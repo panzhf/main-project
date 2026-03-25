@@ -1,0 +1,500 @@
+page {
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  height: 100%;
+  background-color: $uni-bg-color-grey;
+  color: $uni-text-color;
+  font-size: 28rpx;
+}
+view {
+  box-sizing: border-box;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  line-height: 1;
+  &::after {
+    border: none;
+  }
+}
+
+.full-container {
+  min-height: 100%;
+  background-color: $uni-bg-color;
+}
+
+/* 布局 对齐 */
+.flex {
+  display: flex;
+}
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-middle {
+  align-items: center;
+}
+.shrink-0 {
+  flex-shrink: 0;
+}
+
+@each $key,
+$value in (between: space-between, center: center, around: space-around, end: flex-end) {
+  .flex-#{$key} {
+    justify-content: $value;
+  }
+}
+
+@each $key in 1,
+2,
+3,
+4,
+none,
+auto {
+  .flex-#{$key} {
+    flex: $key;
+  }
+}
+
+@each $key in left,
+center,
+right,
+justify {
+  .text-#{$key} {
+    text-align: $key;
+  }
+}
+
+@for $num from 1 through 6 {
+  @each $key,
+  $value in (t: top, r: right, b: bottom, l: left) {
+    .m#{$key}-#{$num * 10} {
+      margin-#{$value}: $num * 10rpx;
+    }
+    .p#{$key}-#{$num * 10} {
+      padding-#{$value}: $num * 10rpx;
+    }
+  }
+}
+
+@for $num from 1 through 6 {
+  @each $key,
+  $value in (m: margin , p: padding) {
+    .#{$key}-#{$num * 10} {
+      #{$value}: $num * 10rpx;
+    }
+  }
+}
+
+/* 颜色 */
+@each $key,
+$color in (primary: $uni-color-primary, "gray": $uni-text-color-grey, "white": $uni-bg-color, success: $uni-color-success,'edit': $uni-color-edit,'error':$uni-color-error) {
+  .#{$key}-color {
+    color: if($key == primary, var(--theme-color, $color), $color);
+  }
+
+  .bg-#{$key} {
+    background-color: if($key == primary, var(--theme-color, $color), $color);
+  }
+}
+
+.placeholder {
+  color: $uni-text-color-placeholder;
+}
+.placeholder-small {
+  color: $uni-text-color-placeholder;
+  font-size: 26rpx;
+}
+
+/*透明度*/
+// font-size 0.1 到 1
+@for $opacity from 1 through 10 {
+  .opacity-#{$opacity * 10} {
+    opacity: $opacity * 0.1
+  }
+}
+/*辅助背景色 透明度*/
+@for $opacity from 1 through 10 {
+  .bg-opacity-#{$opacity * 10} {
+    background-color: rgba(255,131,83,$opacity* 0.1);
+  }
+}
+
+/* 字体  */
+// font-size 14 到 40
+@for $fs from 7 through 20 {
+  .fs-lh-#{$fs * 2} {
+    font-size: $fs * 2rpx;
+    @extend .line-height;
+  }
+
+  .fs-#{$fs * 2} {
+    font-size: $fs * 2rpx;
+  }
+  .fs-#{$fs * 2}-i {
+    font-size: $fs * 2rpx!important;
+  }
+}
+
+// 圆角 4-20
+@for $r from 2 through 10 {
+  .br-#{$r * 2} {
+    @include round($r * 2rpx);
+  }
+}
+
+// 圆角 50%
+.br-round {
+  @include round;
+}
+
+// 圆型图片
+@for $w from 10 through 60 {
+  .avatar-#{$w * 2} {
+    @include round-avatar($w * 2rpx)
+  }
+}
+
+// 字体大小
+.fs-110 {
+  font-size: 110rpx;
+}
+.fs-56 {
+  font-size: 56rpx;
+}
+@each $key in top,
+right,
+bottom,
+left {
+  .border-#{$key} {
+    border-#{$key}: 1rpx solid $uni-border-color;
+  }
+}
+
+/* 其他 */
+.overflow-h {
+  overflow: hidden;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ellipsis-1 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  word-break: break-all;
+}
+.ellipsis-2 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  word-break: break-all;
+}
+// 水平 垂直居中
+.center-middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.wb-ba {
+  word-break: break-all;
+}
+
+.line-height {
+  line-height: 1;
+}
+
+// iPhoneX底部安全区定义
+.safe-area-inset-bottom {
+  padding-bottom: 0;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+// 按钮
+.primary-btn {
+  height: 90rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 32rpx;
+  line-height: 90rpx;
+  background-color: var(--page-theme-color, var(--theme-color, $uni-color-primary));
+  font-weight: 700;
+  transform: scale(1);
+  transition: transform .1s;
+  @include box;
+
+  &.disabled {
+    background-color: $uni-color-disabled;
+  }
+
+  &.wechat {
+    background-color: $uni-color-success;
+  }
+
+  &.plain {
+    border: 1px solid #aaa;
+    background-color: #fff;
+    color: $uni-text-color;
+    font-weight: 500;
+  }
+
+  &.inverse {
+    background-color: #fff;
+    border: 1px solid var(--page-theme-color, var(--theme-color, $uni-color-primary));
+    color: var(--page-theme-color, var(--theme-color, $uni-color-primary));
+    font-weight: 700;
+  }
+
+  &.round {
+    border-radius: 44rpx;
+  }
+
+  // &.size-medium {
+  //   font-size: 30rpx;
+  //   @include lh(60rpx);
+  // }
+
+  // 弹窗
+  &.size-small {
+    font-size: 32rpx;
+    border-radius: 40rpx;
+    @include lh(80rpx);
+  }
+  &.size-mini {
+    min-width: 132rpx;
+    padding: 0 16rpx;
+    height: 54rpx;
+    line-height: 52rpx;
+    font-size: 24rpx;
+    border-radius: 26rpx;
+  }
+  // 固定在底部
+  &.fixed-bottom{
+    position: fixed;
+    bottom: 30rpx;
+    left: 85rpx;
+    right: 85rpx;
+    z-index: 99;
+    bottom: calc(40rpx + constant(safe-area-inset-bottom));
+    &.fixed-wide {
+      left: 30rpx;
+      right: 30rpx;
+    }
+  }
+}
+
+.button-action{
+  transform: scale(0.98) !important;
+}
+
+.cover-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  @include wh(100%);
+}
+
+@for $vh from 1 through 100 {
+ .vh-#{$vh}{
+    height: $vh * 1vh;
+  }
+}
+
+
+// 悬浮底部按钮，建议搭配 bottom-footer-gap 填充空白区域
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100rpx;
+  padding-bottom: 0;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+  // background-color: $uni-bg-color;
+
+  .footer-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+    height: 100%;
+    font-size: 32rpx;
+
+    &.active {
+      background-color: var(--theme-color, $uni-color-primary);
+      color: #fff;
+    }
+
+    &.success-active {
+      background-color: $uni-color-success;
+      color: #fff;
+    }
+
+    &.disabled {
+      background-color: $uni-text-color-disable;
+      color: #fff;
+    }
+  }
+}
+
+.bottom-footer-gap {
+  margin-top: 20rpx;
+  height: 100rpx;
+  height: calc(100rpx + constant(safe-area-inset-bottom));
+  height: calc(100rpx + env(safe-area-inset-bottom));
+}
+
+/* 适配iPhoneX 底部按钮被遮挡的问题 */
+.fix-iphonex-button {
+  bottom:68rpx!important;
+}
+.fix-iphonex-button::after {
+  content: ' ';
+  position: fixed;
+  bottom: 0!important;
+  height: 68rpx!important;
+  width: 100%;
+  background: #fff;
+}
+.link-icon {
+  font-size: 20rpx;
+}
+
+//---------------------------------------------------------
+/* 字体颜色类 */
+.c-0{
+  color: $uni-text-color;
+}
+.c-3 {
+  color: #333;
+}
+.c-6 {
+  color: $uni-text-color-grey;
+}
+.c-9 {
+  color: $uni-text-color-light-grey;
+}
+.c-f {
+  color: $uni-text-color-inverse;
+}
+
+/* 字体粗细 */
+.fw-bold {
+  font-weight: bold;
+}
+.fw-medium {
+  font-weight: 500;
+}
+.fw-normal {
+  font-weight: normal;
+}
+
+.dp-none-i {
+  display: none !important;
+}
+/*背景色*/
+.bg-f {
+  background-color: #fff
+}
+/*边框*/
+.bd-e {
+  @include border-bottom(#e5e5e5);
+}
+.bd-t-e {
+  @include border-top(#e5e5e5);
+}
+.bd-a {
+  @include border-bottom(#aaa);
+}
+.bd-c {
+  @include border-bottom(#ccc);
+}
+/* 外边距 */
+.ml-25 {
+  margin-left: 25rpx;
+}
+.mt-110 {
+  margin-top: 110rpx;
+}
+.mr-5 {
+  margin-right: 5rpx;
+}
+/* 文本位置 */
+.tx-l {
+  text-align: left !important;
+}
+
+.tx-r {
+  text-align: right !important;
+}
+
+.tx-c {
+  text-align: center !important;
+}
+
+.tx-underline{
+  text-decoration:underline;
+}
+
+.tx-through{
+  text-decoration:line-through;
+}
+.max-width-100{
+  max-width: 100%
+}
+.rich-text-img {
+  max-width: 100% !important;
+  display: block;
+  margin: 0 auto;
+}
+
+.button-hover {
+  background: rgba(153, 153, 153, 0.5) !important;
+}
+.p-r {
+  position: relative;
+}
+
+.p-a {
+  position: absolute;
+}
+.p-f {
+  position: fixed;
+}
+.ub {
+  display: flex;
+}
+.ub-f1 {
+  flex: 1;
+}
+
+.ub-ac {
+  align-items: center;
+}
+.ub-pc {
+  justify-content: center;
+}
+.ub-pj {
+  justify-content: space-between;
+}

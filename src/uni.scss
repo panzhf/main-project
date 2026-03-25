@@ -1,0 +1,54 @@
+@import '@/styles/mixins.scss';
+@import 'uview-ui-v1/theme.scss';
+/* 行为相关颜色 */
+$uni-color-primary: #ff7640;  // 主色调 橙色
+$uni-color-success: #58BE6B;  // 微信绿
+$uni-color-warning: #ffd461;
+$uni-color-error: #F35854;
+$uni-color-edit: #0F80FF; //修改
+$uni-color-disabled: #cccccc; //禁用 失效颜色
+
+/* 文字基本颜色 */
+$uni-text-color: #000; //基本色
+$uni-text-color-primary: #FF7640; //主色调 橙色
+$uni-text-color-rule: #FED946; //规则 黄色
+$uni-text-color-inverse: #fff; //
+$uni-text-color-black: #333333; // 灰黑色
+$uni-text-color-grey: #666; // 灰色
+$uni-text-color-light-grey: #999;
+$uni-text-color-placeholder: #BFBFBF;  // placeholder
+$uni-text-color-disable: #cccccc;
+
+/* 背景颜色 */
+$uni-bg-color: #ffffff;
+$uni-bg-color-primary: #FF7640; // 橙色 背景主色调
+$uni-bg-color-grey: #f4f4f4; //浅灰色
+$uni-bg-color-hover: #f1f1f1;
+$uni-bg-color-split: #eaeaea;  //分割线背景颜色
+$uni-bg-color-mask: rgba(0, 0, 0, 0.7); // 遮罩层
+
+/* 边框颜色 */
+$uni-border-color-tag: #aaaaaa; //角色tag
+
+// 背景色
+$bg-color: #ff6440;
+
+// 订单模块
+$order-stats-color:#FF6440;
+// 价格颜色
+$price-color: #ff6440;
+
+// 积分商城字体颜色
+$integral-text-color:#fff;
+// 积分商城边框颜色
+$integral-order-color:#ff6440;
+// 积分商城按钮颜色
+$integral-btn-color:#ff6440;
+
+// 订单文字颜色
+$order-text-color:#fff
+
+
+
+
+

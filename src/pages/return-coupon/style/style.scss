@@ -1,0 +1,30 @@
+.coupon-box {
+  position: relative;
+  background: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+  padding: 30rpx 0 30rpx 10rpx;
+  .diabled-icon {
+    position: absolute;
+    top: 25rpx;
+    right: 30rpx;
+    font-size: 150rpx;
+    z-index: 1;
+    color: #999;
+  }
+  .item {
+    margin: 0 20rpx 20rpx;
+    .info {
+      margin-left: 20rpx;
+      height: 140rpx;
+      .detail {
+        margin-top: 10rpx;
+      }
+    }
+    .img {
+      width: 140rpx;
+      height: 140rpx;
+      flex-shrink: 0;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+
+/* 门店名称区域：相对定位容器，供下方建议列表 absolute 定位 */
+.store-name-wrap {
+  position: relative;
+}
+/* 建议列表展示时提高层级，保证点击输入框/列表不会触发遮罩 */
+.store-name-wrap--list-visible {
+  position: relative;
+  z-index: 101;
+}
+/* 透明遮罩：点击后关闭门店建议弹窗 */
+.store-suggestions-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+/* 门店名称下方搜索建议：绝对定位浮层，最小高度+内部可滚动 */
+.store-suggestions {
+  position: absolute;
+  left: 20rpx;
+  right: 20rpx;
+  top: 100%;
+  z-index: 100;
+  margin-top: 8rpx;
+  max-height: 700rpx;
+  background: #fff;
+  border: 1rpx solid #e5e5e5;
+  border-radius: 12rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.08);
+}
+.store-suggestions-scroll {
+  max-height: 630rpx;
+}
+.store-suggestion-item {
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+  overflow: hidden;
+  margin: 0 20rpx;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+.store-suggestion-name {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.store-suggestion-address {
+  font-size: 24rpx;
+  color: #999;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+/* 门店建议展开时底部占位，保证有足够可滚动距离能把门店名称滚到顶部 */
+.store-suggestions-spacer {
+  min-height: 100vh;
+  width: 100%;
+}

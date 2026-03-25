@@ -1,0 +1,148 @@
+.container {
+  position: relative;
+
+  margin: 0 20rpx;
+
+  background: #f5f5f5;
+  &.is-page {
+    padding-top: 0;
+    .container-header {
+      top: 0;
+    }
+  }
+}
+.container-header {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  background: #f5f5f5;
+  .warm-tip {
+    padding: 10rpx 20rpx;
+
+    color: #ff5e33;
+    background: #fff5f1;
+
+    font-size: 24rpx;
+    font-weight: 500;
+    line-height: 40rpx;
+  }
+}
+.sub-tab-container {
+  margin: 20rpx 20rpx 30rpx;
+  .sub-tab-list {
+    white-space: nowrap;
+    // 隐藏滚动条
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .sub-tab-item {
+    display: inline-block;
+    // width: auto;
+    min-width: 120rpx;
+
+    height: 60rpx;
+    padding: 0 16rpx;
+    margin-right: 20rpx;
+
+    transition: all 0.2s ease;
+    text-align: center;
+
+    // color: $uni-color-primary;
+    color: var(--theme-color, $uni-color-primary);
+    // border: 2rpx solid $uni-color-primary;
+    border: 2rpx solid var(--theme-color, $uni-color-primary);
+    border-radius: 8rpx;
+    background: #fff;
+
+    font-size: 26rpx;
+    font-weight: 500;
+    line-height: 60rpx;
+
+    &.active {
+      color: #fff;
+      // border-color: $uni-color-primary;
+      border-color: var(--theme-color, $uni-color-primary);
+      // background: $uni-color-primary;
+      background: var(--theme-color, $uni-color-primary);
+    }
+  }
+}
+.filter-component {
+  margin: 16rpx 20rpx;
+}
+.search-box {
+  display: flex;
+  .search-date {
+    height: 76rpx;
+    padding: 0 20rpx;
+
+    text-align: center;
+
+    border-radius: 35rpx;
+    background: #fff;
+
+    line-height: 76rpx;
+  }
+  .search-input {
+    width: 100%;
+  }
+}
+::v-deep .tab-box {
+  .tab-item {
+    border-bottom: 0 !important;
+  }
+}
+::v-deep .record-wrap {
+  .record-content {
+    margin-top: 0 !important;
+  }
+}
+.award-show-wrap {
+  overflow: hidden;
+  flex-direction: row;
+
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+.award-show-info {
+  position: relative;
+
+  overflow: hidden;
+
+  &:not(.is-special) {
+    background: linear-gradient(180deg, #fff5f1 0%, #ffffff 100%);
+  }
+  &.is-special {
+    background: #fff;
+    .type-icon {
+      display: none;
+    }
+  }
+  .type-icon {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: 50rpx;
+  }
+}
+.award-show-info-big {
+  height: 120rpx;
+  margin-left: 20rpx;
+
+  text-align: center;
+}
+.award-show-info-big:last-child {
+  margin-right: 20rpx;
+}
+.award-show-info-small {
+  height: 96rpx;
+  margin: 20rpx;
+
+  border-radius: 10rpx;
+}

@@ -1,0 +1,16 @@
+.success-content {
+  height: 100vh;
+  .icon-success {
+    font-size: 110rpx;
+    color: #58be6b;
+    margin-top: 120rpx;
+    margin-bottom: 50rpx;
+  }
+  .primary-btn {
+    width: 640rpx;
+    margin-top: 150rpx;
+    &.plain {
+      margin-top: 30rpx;
+    }
+  }
+}

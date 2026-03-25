@@ -1,0 +1,160 @@
+@mixin wh($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin lh($height, $lheight: $height) {
+  height: $height;
+  line-height: $lheight;
+}
+
+@mixin whl($width, $height: $width, $lh: $height) {
+  width: $width;
+  @include lh($height, $lh);
+}
+
+@mixin h-cen {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin v-cen {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin hv-cen {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin round($r: 50%) {
+  border-radius: $r;
+}
+// 主要标题/信息
+@mixin primary-title($fs: 30rpx, $color: #fff , $weight: 700) {
+  color: $color;
+  font-size: $fs;
+  font-weight: $weight;
+}
+
+// 角色等tag  $bc: 边框颜色 $br: 边框圆角
+@mixin role-tag($color: $uni-text-color-grey, $bc: $uni-border-color-tag, $fs: 20rpx, $lh: 32rpx, $pd: 0 14rpx, $br: 17rpx, $weight: 400) {
+  padding: $pd;
+  font-size: $fs;
+  color: $color;
+  line-height: $lh;
+  font-weight: $weight;
+  display: inline-block;
+  @include border($bc,$br)
+}
+
+// 层
+@mixin position($p: absolute, $w: 100%, $h: 90vw ,$t: 0, $l:0 ,$z: -1) {
+  position: absolute;
+  z-index: $z;
+  top: $t;
+  left: $l;
+  width: $w;
+  height: $h;
+}
+
+// 圆的头像/logo
+@mixin round-avatar($w: 72rpx, $r: 50%) {
+  width: $w;
+  height: $w;
+  border-radius: $r;
+}
+
+@mixin box($box: border-box) {
+  box-sizing: $box;
+}
+// 边框
+@mixin border($color: #888, $r: 0) {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    border: 1px solid $color;
+    transform-origin: 0 0;
+    transform: scale(0.5, 0.5);
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+    border-radius: 2 * $r;
+  }
+}
+// 上边框
+@mixin border-top($color: #888) {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 1px;
+    background: $color;
+    transform-origin: 0 0;
+    transform: scale(0.5, 0.5);
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+  }
+}
+// 下边框
+@mixin border-bottom($color: #888) {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 1px;
+    background: $color;
+    transform-origin: 0 0;
+    transform: scale(0.5, 0.5);
+    box-sizing: border-box;
+    left: 0;
+    bottom: 0;
+  }
+}
+// 左边框
+@mixin border-left($color: #888 ,$h: 200%, $left: 0 , $top: 0) {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: $h;
+    background: $color;
+    transform-origin: 0 0;
+    transform: scale(0.5, 0.5);
+    box-sizing: border-box;
+    left: $left;
+    top: $top;
+  }
+}
+// 多行省略
+@mixin multi-ellipsis($line: 2) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $line;
+}
+
+//背景样式
+@mixin background-set($w: 100% 100%, $pos: top center, $rp: no-repeat) {
+  background-size: $w;
+  background-repeat: $rp;
+  background-position: $pos;
+}
+
+// iPhone X等机型底部安全区适配
+@mixin safe-area($num: 0, $prop: padding-bottom) {
+  #{$prop}: $num;
+  // ios < 11.2，机型基本较少
+  #{$prop}: calc(#{$num} + constant(safe-area-inset-bottom));
+  #{$prop}: calc(#{$num} + env(safe-area-inset-bottom));
+}
